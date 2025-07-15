@@ -2,8 +2,8 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>نتيجة الثانوية العامة - 2025</title>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
   <style>
@@ -28,12 +28,12 @@
       overflow: hidden;
       position: relative;
       z-index: 2;
+      text-align: center;
     }
     .header {
       background-color: #002147;
       color: white;
       padding: 30px 20px 20px;
-      text-align: center;
     }
     .header img {
       width: 120px;
@@ -56,15 +56,15 @@
     .content {
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-between;
+      justify-content: center;
       padding: 25px;
+      gap: 20px;
     }
     .section {
       width: 48%;
       background-color: #f9f9f9;
       border-radius: 8px;
       padding: 20px;
-      margin-bottom: 20px;
       box-shadow: 0 1px 4px rgba(0,0,0,0.05);
     }
     .section h4 {
@@ -79,6 +79,10 @@
       padding: 8px 0;
       border-bottom: 1px solid #ddd;
       font-size: 16px;
+      text-align: center;
+    }
+    .item span {
+      flex: 1;
     }
     .item.total {
       font-weight: 700;
@@ -106,7 +110,7 @@
 <body>
   <div class="container">
     <div class="header">
-      <img src="https://moe.gov.eg/wwwroot/images/logo.png"alt="شعار وزارة التربية والتعليم">
+      <img src="https://moe.gov.eg/wwwroot/images/logo.png" alt="شعار وزارة التربية والتعليم">
       <h1>درجات شهادة إتمام الثانوية العامة</h1>
       <h2>العام الدراسي 2024 / 2025 - الرصد النهائي</h2>
       <h3>إعادة الرصد والتصحيح - الموقع خاص بالمصححين فقط.</h3>
@@ -118,7 +122,7 @@
         <div class="item"><span>الاسم</span><span>سجده أحمد سعيد السيد غنيمة</span></div>
         <div class="item"><span>رقم الجلوس</span><span>1250929</span></div>
         <div class="item"><span>الشعبة</span><span>علمي علوم</span></div>
-        div class="item"><span>المدرسة</span><span>المشير محمدعبدالغني الجمسي بنات</span></div>
+        <div class="item"><span>المدرسة</span><span>المشير محمد عبد الغني الجمسي بنات</span></div>
       </div>
 
       <!-- المواد التي تضاف للمجموع -->
@@ -129,7 +133,6 @@
         <div class="item"><span>الفيزياء</span><span class="mark">53</span></div>
         <div class="item"><span>الكيمياء</span><span class="mark">54</span></div>
         <div class="item"><span>الأحياء</span><span class="mark">51</span></div>
-        <!-- سيتم إضافة المجموع والنسبة المئوية تلقائيًا عبر JavaScript -->
       </div>
     </div>
     <div class="footer">
@@ -142,15 +145,13 @@
     document.addEventListener('DOMContentLoaded', function () {
       const marks = Array.from(document.querySelectorAll('#subjects-section .mark'));
       const total = marks.reduce((sum, span) => sum + (parseInt(span.textContent, 10) || 0), 0);
-      const maxTotal = 320; // إجمالي الدرجات الكلي المعدل
+      const maxTotal = 320;
       const percentage = ((total / maxTotal) * 100).toFixed(2);
 
-      // عنصر للمجموع الكلي
       const totalDiv = document.createElement('div');
       totalDiv.className = 'item total';
       totalDiv.innerHTML = `<span>المجموع الكلي</span><span>${total} / ${maxTotal}</span>`;
 
-      // عنصر للنسبة المئوية
       const percentageDiv = document.createElement('div');
       percentageDiv.className = 'item total';
       percentageDiv.innerHTML = `<span>النسبة المئوية</span><span>${percentage}%</span>`;
